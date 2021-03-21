@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>Redis_Cache_Api</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3"/>
+    <PackageReference Include="OneOf" Version="3.0.178"/>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Redis-Cache-Common\Redis-Cache-Common.csproj"/>
+    <ProjectReference Include="..\Redis-Cache-Services\Redis-Cache-Services.csproj"/>
+  </ItemGroup>
+</Project>
