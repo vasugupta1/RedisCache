@@ -32,11 +32,12 @@ namespace Redis_Cache_Api
             services.AddControllers();
             var connectionString = Configuration
             .GetValue<string>("Redis.ConnectionString");
+            
             services.AddSingleton<ICachingService<DataObject>>(
                 new CachingService<DataObject>(
                     ConnectionMultiplexer.Connect(connectionString).GetDatabase()));
-
-            services.AddHostedService<PubSubService>(); // This service will run in the background
+            services.AddSingleton<ISubscriber>(ConnectionMultiplexer.Connect(connectionString).GetSubscriber());
+            services.AddHostedService<PubSubService>(); // This service will run in the background.
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
