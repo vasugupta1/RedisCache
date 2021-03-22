@@ -57,11 +57,7 @@ namespace Redis_Cache_Api.Controllers
             if(string.IsNullOrEmpty(key))
             {
                 throw new ArgumentException($"Cannot be null or empty : {nameof(key)}");
-            }
-            if(data is null)
-            {
-                throw new ArgumentException($"Cannot be null or empty : {nameof(data)}");
-            }   
+            } 
             try
             {
                await _cachingService.SetCacheObject(data, key);
